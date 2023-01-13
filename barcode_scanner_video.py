@@ -12,7 +12,7 @@ import cv2
 from firebase import firebase
 
 firebase = firebase.FirebaseApplication("https://wintercapstonedesign-default-rtdb.firebaseio.com/", None)
-result = firebase.get('QR_code', None)
+result = firebase.get('qr_info', None)
 
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
@@ -62,7 +62,7 @@ while True:
 		# if the barcode text is currently not in our CSV file, write
 		# the timestamp + barcode to disk and update the set
 		#if barcodeData in result.values():
-		#	tmp = firebase.put("/","toESP_unlock","true")
+		#	tmp = firebase.put("/","check_qr","true")
 		if barcodeData not in found:
 			csv.write("{},{}\n".format(datetime.datetime.now(),
 				barcodeData))
